@@ -1,14 +1,14 @@
 class Claudedot < Formula
   desc "Claude environment sync — cross-machine config and history via git"
   homepage "https://github.com/bpeterme/claudedot"
-  url "https://github.com/bpeterme/claudedot/archive/refs/tags/2026.05.20.1.tar.gz"
-  sha256 "f622b0c7e8962c7871b68a425d0d651c924104273ddbc4004f322c621178dcc9"
+  url "https://github.com/bpeterme/claudedot/archive/refs/tags/2026.05.20.2.tar.gz"
+  sha256 "4c747cb979c969318eb884e504ec19b492485133be575a2f32b934a278f936fe"
   license "MIT"
 
   head "https://github.com/bpeterme/claudedot.git", branch: "dev"
 
   def install
-    version_str = build.head? ? "HEAD-#{`git describe --tags --always`.chomp}" : version.to_s
+    version_str = build.head? ? "HEAD-#{`git rev-parse --short HEAD`.chomp}" : version.to_s
     inreplace "cdot.sh", '_CDOT_VERSION="dev"', "_CDOT_VERSION=\"#{version_str}\""
     bin.install "cdot.sh" => "cdot"
     (share/"claudedot").install "cdot.env.example"
