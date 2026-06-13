@@ -1,8 +1,6 @@
 class Claudedot < Formula
   desc "Claude environment sync — cross-machine config and history via git"
   homepage "https://github.com/bpeterme/claudedot"
-  url "https://github.com/bpeterme/claudedot/archive/refs/tags/2026.05.25.0.tar.gz"
-  sha256 "8b00488cd2ecb0226efde245588ccde470acc17860d851fa8aa0dddb77e52d7c"
   license "MIT"
 
   head "https://github.com/bpeterme/claudedot.git", branch: "dev"
@@ -12,6 +10,7 @@ class Claudedot < Formula
     inreplace "cdot.sh", '_CDOT_VERSION="dev"', "_CDOT_VERSION=\"#{version_str}\""
     bin.install "cdot.sh" => "cdot"
     (share/"claudedot").install "cdot.env.example"
+    zsh_completion.install "completions/_cdot"
   end
 
   def caveats
@@ -26,6 +25,6 @@ class Claudedot < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/cdot version")
+    assert_match "cdot HEAD-", shell_output("#{bin}/cdot version")
   end
 end
