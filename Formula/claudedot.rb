@@ -1,6 +1,8 @@
 class Claudedot < Formula
   desc "Claude environment sync — cross-machine config and history via git"
   homepage "https://github.com/bpeterme/claudedot"
+  url "https://github.com/bpeterme/claudedot/archive/refs/tags/2026.06.13.0.tar.gz"
+  sha256 "6499d7903e51274040cb8b38011e708fc9ee8abf3f59059738194289d1f5785c"
   license "MIT"
 
   head "https://github.com/bpeterme/claudedot.git", branch: "dev"
@@ -25,6 +27,6 @@ class Claudedot < Formula
   end
 
   test do
-    assert_match "cdot HEAD-", shell_output("#{bin}/cdot version")
+    assert_match version.to_s, shell_output("#{bin}/cdot version")
   end
 end
