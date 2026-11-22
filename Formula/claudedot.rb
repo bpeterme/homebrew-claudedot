@@ -1,8 +1,8 @@
 class Claudedot < Formula
   desc "Claude environment sync — cross-machine config and history via git"
   homepage "https://github.com/bpeterme/claudedot"
-  url "https://github.com/bpeterme/claudedot/archive/refs/tags/2026.11.17.1.tar.gz"
-  sha256 "5ac8cce7f4ca262bb549ceca741e6a03cdb0644254e7ab090d97279160972ac9"
+  url "https://github.com/bpeterme/claudedot/archive/refs/tags/2026.11.22.0.tar.gz"
+  sha256 "d7e0d4849fad3ddb6d0486ea20e79191e6a9ae14f9d1567e3475b93b19fdbb5c"
   license "MIT"
 
   head "https://github.com/bpeterme/claudedot.git", branch: "dev"
